@@ -102,25 +102,15 @@ public class CommitteeManagement {
                     }       
                         break;
                     case 4:
-                        System.out.println("------------------------------------------------------------------");
-                        System.out.println("The employee list is shown according to the Staff ID:");
-                        System.out.println("------------------------------------------------------------------");
-                        StaffID = 1;
-                        while (employeeName[StaffID] != null) {
-                            System.out.println("Staff ID: "+StaffID);
-                            System.out.println("Employee Name: "+employeeName[StaffID]);
-                            System.out.println("Employee Contact Number: "+employeeContact[StaffID]);
-                            System.out.println("Employee Department: "+departmentName[StaffID]);
-                            System.out.println("-----------------------------------------");
-                            ++StaffID;
-                        }
+                        //Will do after case 5 is fixed
                         break;
                     case 5:
                         System.out.println("------------------------------------------------------------------");
                         System.out.println("The employee list is shown according to the Committee ID:");
                         System.out.println("------------------------------------------------------------------");
                         StaffID = 1;
-                        while (!(committee[StaffID].equals(numberOfCommitteeStr[0]))) {
+                        //HOW DO I DO THIS????
+                        while (committee[StaffID] != (numberOfCommitteeStr[0])) {
                             committeeID = Integer.parseInt(committee[StaffID]);
                             System.out.println("Committee Name: "+committeeName[committeeID]);
                             System.out.println("Staff ID: "+StaffID);
