@@ -20,18 +20,21 @@ public class CommitteeManagement {
         // TODO code application logic here
         Scanner scan = new Scanner(System.in);
         int quantity, StaffID = 1, committeeID = 1, choice, exit, repeat, manageChoice, numberOfCommittee = 1;
-        String[] employeeName, committeeName, departmentName, position, role, dateJoined, dateCreated, numberOfCommitteeStr;
+        String[] employeeName, committeeName, departmentName, position, role, dateJoined, dateCreated, feedback;
         int[] employeeContact, duration, committee;
-        employeeName = new String[20];
-        employeeContact = new int[20];
-        departmentName = new String[20];
-        committee = new int[20];
-        position = new String[20];
-        role = new String[20];
-        committeeName = new String[20];
-        duration = new int[20];
-        dateCreated = new String[20];
-        dateJoined = new String [20];
+        double [] allowance;
+        employeeName = new String[1000];
+        employeeContact = new int[1000];
+        departmentName = new String[1000];
+        committee = new int[1000];
+        position = new String[1000];
+        role = new String[1000];
+        committeeName = new String[1000];
+        duration = new int[1000];
+        dateCreated = new String[1000];
+        dateJoined = new String [1000];
+        feedback = new String [1000];
+        allowance = new double[1000];
         exit = 2;
         repeat = 1;
         while (exit == 2) {
@@ -43,7 +46,7 @@ public class CommitteeManagement {
                 switch (choice) {
                     case 1:
                         while (repeat == 1) {
-                            System.out.println("Enter employee name:");
+                            System.out.println("Enter employee's first name:");
                             employeeName[StaffID] = scan.next();
                             System.out.println("Enter employee contact number:");
                             employeeContact[StaffID] = scan.nextInt();
@@ -107,7 +110,16 @@ public class CommitteeManagement {
                         repeat = 1;
                         break;
                     case 4:
-                        //Will do after case 5 is fixed
+                        while (repeat == 1) {
+                        System.out.println("Which employee would you like to allocate an allowance for?");
+                        StaffID = scan.nextInt();
+                        System.out.println("Enter the amount you would like to allocate!");
+                        allowance[StaffID] = scan.nextDouble();
+                        System.out.println("Would you like to allocate allowance for another employee?");
+                        System.out.println("Enter 1 for yes and 2 for no");
+                        repeat = scan.nextInt();                           
+                        }
+                        repeat = 1;
                         break;
                     case 5:
                         while (repeat == 1) {
@@ -122,13 +134,53 @@ public class CommitteeManagement {
                             System.out.println("Employee Name: "+employeeName[StaffID]);
                             System.out.println("Employee Contact Number: "+employeeContact[StaffID]);
                             System.out.println("Employee Department: "+departmentName[StaffID]);
+                            System.out.println("Employment Date: "+dateJoined[StaffID]);
+                            System.out.println("Employee Allowance: "+allowance[StaffID]);
                             System.out.println("-----------------------------------------");
                             ++committee[StaffID];
                         }
                             System.out.println("Would you like to regenerate the report or exit?");
                             System.out.println("Enter 1 to regenerate and 2 to exit");
+                            repeat = scan.nextInt();
                         }
                         repeat = 1;
+                        break;
+                    case 6:
+                        while (repeat == 1) {
+                        System.out.println("Would you like to write feedback or see feedback given?");
+                        System.out.println("Enter 1 to write feedback and 2 to see feedback given");
+                        manageChoice = scan.nextInt();
+                        if (manageChoice == 1) {
+                            while (repeat == 1) {
+                                System.out.println("Which employee would you like to write feedback for?");
+                                StaffID = scan.nextInt();
+                                System.out.println("Enter your feedback! (Please use single word adjectives for feedback)");
+                                feedback[StaffID] = scan.next();
+                                System.out.println("Would you like to write for another employee?");
+                                System.out.println("Enter 1 for yes and 2 for no");
+                                repeat = scan.nextInt();                           
+                            }
+                        repeat = 1;
+                        }
+                        else if (manageChoice == 2) {
+                            while (repeat == 1) {
+                                System.out.println("Enter the Staff ID!");
+                                StaffID = scan.nextInt();
+                                committeeID = committee[StaffID];
+                                System.out.println("Committee Name: "+committeeName[committeeID]);
+                                System.out.println("Staff ID: "+StaffID);
+                                System.out.println("Employee Name: "+employeeName[StaffID]);
+                                System.out.println("Feedback: "+feedback[StaffID]);
+                                System.out.println("Would you like to see feedback of another employee?");
+                                System.out.println("Enter 1 for yes and 2 for no");
+                                repeat = scan.nextInt();
+                            }
+                        repeat = 1;    
+                        }
+                        System.out.println("Would you like to stay in the feedback section?");
+                        System.out.println("Enter 1 for yes and 2 for no");
+                        repeat = scan.nextInt();
+                        }
                         break;
                     case 7:
                         exit = 0;
