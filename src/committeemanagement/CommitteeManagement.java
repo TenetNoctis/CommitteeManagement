@@ -130,6 +130,8 @@ public class CommitteeManagement {
                         while (committee[StaffID] < numberOfCommittee) {
                             committeeID = committee[StaffID];
                             System.out.println("Committee Name: "+committeeName[committeeID]);
+                            System.out.println("Date committee was founded: "+dateCreated[committeeID]);
+                            System.out.println("Days committee will be active for: "+duration[committeeID]);
                             System.out.println("Staff ID: "+StaffID);
                             System.out.println("Employee Name: "+employeeName[StaffID]);
                             System.out.println("Employee Contact Number: "+employeeContact[StaffID]);
